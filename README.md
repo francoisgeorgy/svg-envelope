@@ -1,6 +1,6 @@
-# svg-knob
+# svg-envelope
 
-A flexible and customizable ADSR like for your web audio applications.
+A flexible and customizable ADSR-like envelope for your web audio applications.
 
 ## Usage
 
