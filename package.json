@@ -1,6 +1,6 @@
 {
   "name": "svg-envelope",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Customizable ADSR like envelope",
   "keywords": [
     "svg",
