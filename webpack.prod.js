@@ -11,7 +11,7 @@ module.exports = merge(common, {
         }, /*pluginOpts*/ {})
     ],
     output: {
-        filename: './svg-envelope.min.js',
+        filename: 'svg-envelope.min.js',
         path: path.resolve(__dirname, 'dist')
     }
 });

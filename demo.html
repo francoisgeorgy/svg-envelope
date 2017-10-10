@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <script src="dist/svg-slider.min.js"></script>
+    <script src="dist/svg-envelope.min.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -28,61 +28,66 @@
             width: 16vw;
             text-align: center;
         }
-        .slider {
+        .envelope {
             align-self: start;
             border: none;
             height: 20vh;
         }
-        #slider-default {
+        #envelope-default {
             height: 20vh;
         }
-        #slider-2 {
+        #envelope-2 {
             height: 200px;
         }
-        #slider-3 {
+        #envelope-3 {
             height: 200px;
         }
     </style>
 </head>
 <body>
-    <h1>svg-slider demo</h1>
-    <div id="header">
-        Click over the slider and drag to change it's value. You can also use the mouse-wheel.<br />
-        Click this <button id="randomize">randomize</button> button to randomly set the value of all sliders.
-        <span id="value" style="float:right;"></span>
-    </div>
+    <h1>svg-envelope demo</h1>
+    <!--<div id="header">-->
+        <!--Click over the envelope and drag to change it's value. You can also use the mouse-wheel.<br />-->
+        <!--Click this <button id="randomize">randomize</button> button to randomly set the value of all envelopes.-->
+        <!--<span id="value" style="float:right;"></span>-->
+    <!--</div>-->
     <div id="light-bg" class="grid">
         <div>
-            <svg class="slider" id="slider-default"></svg>
-            <div>Default slider</div>
+            <svg class="envelope" id="envelope-default"></svg>
+            <div>Default envelope</div>
         </div>
+<!--
         <div>
-            <svg class="slider" id="slider-simple"></svg>
+            <svg class="envelope" id="envelope-simple"></svg>
             <div></div>
         </div>
+-->
     </div>
     <div id="dark-bg" class="grid">
+<!--
         <div>
-            <svg class="slider" id="slider-dark1"></svg>
+            <svg class="envelope" id="envelope-dark1"></svg>
             <div></div>
         </div>
+-->
     </div>
 </body>
 <script>
 
     // If the browser support ES6 modules:
-    //import Slider from './svg-slider.js';
+    //import Envelope from './svg-envelope.js';
 
     // For browser that do not support ES6 modules yet:
-    let Slider = svgSlider.default;
+    let Envelope = svgEnvelope.default;
 
     document.addEventListener("DOMContentLoaded", function() {
 
-        let sliders = {};
+        let envelopes = {};
 
-        sliders[1] = new Slider(document.getElementById('slider-default'));
+        envelopes[1] = new Envelope('#envelope-default');
 
-        sliders[3] = new Slider(document.getElementById('slider-simple'), {
+/*
+        envelopes[3] = new Envelope(document.getElementById('envelope-simple'), {
             markers: false,
             cursor: false,
             track_bg_offset: 5,
@@ -95,47 +100,33 @@
             track_width: 20,
             track_radius: 0
         });
+*/
 
-        sliders[4] = new Slider(document.getElementById('slider-dark1'), {
-            palette: 'dark',
-            track_bg_border_color: '#000',  // set identical to background
-            track_bg_offset: 5,
-            track_bg_length: 90,
-            track_bg_width: 8,
-            track_bg_radius: 3,
-            track_bg_border_width: 2,
-            track_offset: 5,
-            track_length: 90,
-            track_width: 6,
-            track_radius: 3,
-            markers_width: 1,
-            cursor_width: 14,
-            cursor_height: 6,
-            cursor_border_width: 0,
-            cursor_radius: 2
-        });
-
-
-        Object.getOwnPropertyNames(sliders).forEach(
-            function(slider, index) {
-                sliders[slider].value = 42;
+/*
+        Object.getOwnPropertyNames(envelopes).forEach(
+            function(envelope, index) {
+                envelopes[envelope].value = 42;
             }
         );
+*/
 
+/*
         const value_elem = document.getElementById("value");
-        const all_sliders = document.getElementsByClassName("slider");
-        for (let i = 0; i < all_sliders.length; i++) {
-            all_sliders[i].addEventListener("change", function(event) {
+        const all_envelopes = document.getElementsByClassName("envelope");
+        for (let i = 0; i < all_envelopes.length; i++) {
+            all_envelopes[i].addEventListener("change", function(event) {
                 // Event.target: a reference to the object that dispatched the event. It is different from event.currentTarget
                 //               when the event handler is called during the bubbling or capturing phase of the event.
                 value_elem.innerText = `#${event.target.id}: ${event.detail}`;
             });
         }
+*/
 
+/*
         var randomize_button = document.getElementById("randomize");
         randomize_button.addEventListener("click", function(event) {
-            Object.getOwnPropertyNames(sliders).forEach(
-                function(slider) {
+            Object.getOwnPropertyNames(envelopes).forEach(
+                function(envelope) {
                     var v = 0;
                     var m = Math.ceil(Math.random() * 100);
                     var id = setInterval(frame, 15);
@@ -143,13 +134,14 @@
                         if (v > m) {
                             clearInterval(id);
                         } else {
-                            sliders[slider].value = v;
+                            envelopes[envelope].value = v;
                             v++;
                         }
                     }
                 }
             );
         });
+*/
 
     });
 

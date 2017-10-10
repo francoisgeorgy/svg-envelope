@@ -8,18 +8,29 @@
 
         const NS = "http://www.w3.org/2000/svg";
 
-        let element = elem;    // DOM element
+        let svg_element = elem;    // DOM element
+
+        if (typeof elem === 'string' || elem instanceof String) {
+            elem = document.querySelector(elem);
+        }
+
+        if (elem.nodeName.toLowerCase() === 'svg') {
+            svg_element = elem;
+        } else {
+            svg_element = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            elem.appendChild(svg_element);
+        }
 
         // For the user convenience, the label can be set with the "data-label" attribute.
         // If another label is set in data-config then this later definition will override data-label.
-        let default_label = element.dataset.label !== undefined ? element.dataset.label : '';
+        let label = elem.dataset.label !== undefined ? elem.dataset.label : false;
 
         let defaults = {
 
             // User configurable properties.
             // No camelCase because we want to be able to have the same name in data- attributes.
 
-            label: default_label,
+            label: false,
             env_color: 'blue',
             env_width: 4,
             with_label: true,
@@ -36,7 +47,7 @@
 
         //---------------------------------------------------------------------
         // Merge user config with default config:
-        let data_config = JSON.parse(element.dataset.config || '{}');
+        let data_config = JSON.parse(svg_element.dataset.config || '{}');
         let config = Object.assign({}, defaults, conf, data_config);
 
         //---------------------------------------------------------------------
@@ -101,10 +112,10 @@
             // fragment getting "painted" first. Subsequent elements are painted on top of previously painted elements.
             // ==> first element -> "painted" first
 
-            element.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
-            element.setAttributeNS(null, "viewBox", "0 0 100 100");
-            element.setAttributeNS(null, "preserveAspectRatio", "none");
-            element.setAttribute("class", "envelope");
+            svg_element.setAttributeNS("http://www.w3.org/2000/xmlns/", "xmlns:xlink", "http://www.w3.org/1999/xlink");
+            svg_element.setAttributeNS(null, "viewBox", "0 0 100 100");
+            svg_element.setAttributeNS(null, "preserveAspectRatio", "none");
+            svg_element.setAttribute("class", "envelope");
 
             let path = document.createElementNS(NS, "path");
             path.setAttributeNS(null, "d", getPath(env));
@@ -113,7 +124,7 @@
             path.setAttribute("stroke-width", "" + config.env_width);
             path.setAttribute("fill", "transparent");
             path.setAttribute("class", "envelope-path");
-            element.appendChild(path);
+            svg_element.appendChild(path);
 
         }  // draw()
 
@@ -121,7 +132,7 @@
          *
          */
         function redraw() {
-            element.childNodes[0].setAttributeNS(null, "d", getPath());
+            svg_element.childNodes[0].setAttributeNS(null, "d", getPath());
         }
 
         /**

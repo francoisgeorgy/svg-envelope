@@ -5,7 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'svg-envelope.js',
-        library: 'svg-envelope',
+        library: 'svgEnvelope',
         libraryTarget: 'umd'
     }
 };
