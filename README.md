@@ -20,7 +20,7 @@ The code should work with these versions:
     <svg class="envelope" id="envelope"></svg>
 
     <script type="module">
-        import envelope from './svg-svg-envelope.js';
+        import envelope from './svg-index.js';
         var e = new envelope(document.getElementById('envelope'), { /* config... */ });        
     </script>
 

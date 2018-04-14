@@ -7,8 +7,6 @@
     "adsr",
     "envelope"
   ],
-  "main": "dist/svg-envelope.min.js",
-  "module": "src/svg-envelope.js",
   "repository": "https://github.com/francoisgeorgy/svg-envelope.git",
   "bugs": "https://github.com/francoisgeorgy/svg-envelope/issues",
   "author": "François Georgy <francois.georgy@gmail.com> (http://sysex.io)",
@@ -18,15 +16,16 @@
     "dist/svg-envelope.min.js"
   ],
   "scripts": {
-    "dev": "webpack --config webpack.dev.js",
-    "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "babel-minify-webpack-plugin": "^0.2.0",
-    "webpack": "^3.6.0",
-    "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3"
   }
 }
