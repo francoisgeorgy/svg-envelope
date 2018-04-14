@@ -1,12 +1,13 @@
 {
   "name": "svg-envelope",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Customizable ADSR like envelope",
   "keywords": [
     "svg",
     "adsr",
     "envelope"
   ],
+  "main": "dist/main.js",
   "repository": "https://github.com/francoisgeorgy/svg-envelope.git",
   "bugs": "https://github.com/francoisgeorgy/svg-envelope/issues",
   "author": "François Georgy <francois.georgy@gmail.com> (http://sysex.io)",
