@@ -1,7 +1,7 @@
 module.exports = {
     output: {
-        library: 'svgEnvelope',
-        libraryTarget: 'umd'
+        library: "svgEnvelope",
+        libraryTarget: "umd"
     },
     module: {
         rules: [
