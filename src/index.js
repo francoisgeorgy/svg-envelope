@@ -1,6 +1,8 @@
 
     "use strict";
 
+    // FIXME: remove console usage for IE compatibility
+
     export default function(elem, conf) {
 
         // It faster to access a property than to access a variable...
@@ -10,11 +12,11 @@
 
         let svg_element = elem;    // DOM element
 
-        if (typeof elem === 'string' || elem instanceof String) {
+        if (typeof elem === "string" || elem instanceof String) {
             elem = document.querySelector(elem);
         }
 
-        if (elem.nodeName.toLowerCase() === 'svg') {
+        if (elem.nodeName.toLowerCase() === "svg") {
             svg_element = elem;
         } else {
             svg_element = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -31,7 +33,7 @@
             // No camelCase because we want to be able to have the same name in data- attributes.
 
             label: false,
-            env_color: 'blue',
+            env_color: "blue",
             env_width: 4,
             with_label: true,
             width_A: 0.25,
@@ -47,7 +49,7 @@
 
         //---------------------------------------------------------------------
         // Merge user config with default config:
-        let data_config = JSON.parse(svg_element.dataset.config || '{}');
+        let data_config = JSON.parse(svg_element.dataset.config || "{}");
         let config = Object.assign({}, defaults, conf, data_config);
 
         //---------------------------------------------------------------------
@@ -70,7 +72,7 @@
          */
         function getPath() {
 
-            let p = '';
+            let p = "";
 
             // start position
             let x = 0.0;
