@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>svg-envelope demo</title>
     <meta name="description" content="svg-envelope demos and examples">
-    <script src="dist/main.js"></script>
+    <script src="dist/index.umd.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -39,113 +39,21 @@
         #envelope-default {
             height: 20vh;
         }
-        #envelope-2 {
-            height: 200px;
-        }
-        #envelope-3 {
-            height: 200px;
-        }
     </style>
 </head>
 <body>
     <h1>svg-envelope demo</h1>
-    <!--<div id="header">-->
-        <!--Click over the envelope and drag to change it's value. You can also use the mouse-wheel.<br />-->
-        <!--Click this <button id="randomize">randomize</button> button to randomly set the value of all envelopes.-->
-        <!--<span id="value" style="float:right;"></span>-->
-    <!--</div>-->
     <div id="light-bg" class="grid">
         <div>
             <svg class="envelope" id="envelope-default"></svg>
             <div>Default envelope</div>
         </div>
-<!--
-        <div>
-            <svg class="envelope" id="envelope-simple"></svg>
-            <div></div>
-        </div>
--->
-    </div>
-    <div id="dark-bg" class="grid">
-<!--
-        <div>
-            <svg class="envelope" id="envelope-dark1"></svg>
-            <div></div>
-        </div>
--->
     </div>
 </body>
 <script>
 
-    // If the browser support ES6 modules:
-    //import Envelope from './index.js';
-
-    // For browser that do not support ES6 modules yet:
-    let Envelope = svgEnvelope.default;
-
     document.addEventListener("DOMContentLoaded", function() {
-
-        let envelopes = {};
-
-        envelopes[1] = new Envelope('#envelope-default');
-
-/*
-        envelopes[3] = new Envelope(document.getElementById('envelope-simple'), {
-            markers: false,
-            cursor: false,
-            track_bg_offset: 5,
-            track_bg_length: 90,
-            track_bg_width: 20,
-            track_bg_radius: 0,
-            track_bg_border_width: 0,
-            track_offset: 5,
-            track_length: 90,
-            track_width: 20,
-            track_radius: 0
-        });
-*/
-
-/*
-        Object.getOwnPropertyNames(envelopes).forEach(
-            function(envelope, index) {
-                envelopes[envelope].value = 42;
-            }
-        );
-*/
-
-/*
-        const value_elem = document.getElementById("value");
-        const all_envelopes = document.getElementsByClassName("envelope");
-        for (let i = 0; i < all_envelopes.length; i++) {
-            all_envelopes[i].addEventListener("change", function(event) {
-                // Event.target: a reference to the object that dispatched the event. It is different from event.currentTarget
-                //               when the event handler is called during the bubbling or capturing phase of the event.
-                value_elem.innerText = `#${event.target.id}: ${event.detail}`;
-            });
-        }
-*/
-
-/*
-        var randomize_button = document.getElementById("randomize");
-        randomize_button.addEventListener("click", function(event) {
-            Object.getOwnPropertyNames(envelopes).forEach(
-                function(envelope) {
-                    var v = 0;
-                    var m = Math.ceil(Math.random() * 100);
-                    var id = setInterval(frame, 15);
-                    function frame() {
-                        if (v > m) {
-                            clearInterval(id);
-                        } else {
-                            envelopes[envelope].value = v;
-                            v++;
-                        }
-                    }
-                }
-            );
-        });
-*/
-
+        new svgEnvelope('#envelope-default');
     });
 
 </script>

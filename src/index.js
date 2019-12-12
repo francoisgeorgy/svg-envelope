@@ -74,30 +74,32 @@
 
             let p = "";
 
+            const hw = (config.env_width / 2);
+
             // start position
             let x = 0.0;
             let y = 0.0;
-            p += `M${x * 100.0},${100.0 - y}`; // start at lower left corner
+            p += `M${x * 100.0 + hw},${100.0 - y}`; // start at lower left corner
 
             // Attack
             x += env.attack * config.width_A;
-            y = 100.0 - (config.env_width / 2);
+            y = 100.0 - hw;
             p += `L${x * 100.0},${100.0 - y}`;
 
             // Decay
             x += env.decay * config.width_D;
-            y = env.sustain * 100.0 - (config.env_width / 2);
+            y = env.sustain * 100.0 - hw;
             p += `L${x * 100.0},${100.0 - y + 2}`;
 
             // Sustain
             x = 1.0 - (env.release * config.width_R);
-            y = env.sustain * 100.0 - (config.env_width / 2);
+            y = env.sustain * 100.0 - hw;
             p += `L${x * 100.0},${100.0 - y + 2}`;
 
             // Release
             x = 1.0;
             y = config.env_width / 2;
-            p += `L${x * 100.0},${100.0 - y + 2}`;
+            p += `L${x * 100.0 - hw},${100.0 - y + 2}`;
 
             return p;
         }

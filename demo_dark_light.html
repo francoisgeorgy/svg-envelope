@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>svg-envelope demo</title>
+    <meta name="description" content="svg-envelope demos and examples">
+    <script src="dist/index.umd.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        .light {
+            background-color: #e6fffa;
+        }
+        .dark {
+            background-color: #1a202c;
+            color: #aaa;
+        }
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-content: stretch;
+            width: 100%;
+        }
+        .container {
+            padding: 100px 50px;
+        }
+        .cols div:first-child {
+            text-align: right;
+        }
+        .envelope {
+            align-self: start;
+            height: 20vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>svg-envelope demo</h1>
+    <div class="cols">
+        <div class="container dark">
+                <svg class="envelope" id="envelope-dark"></svg>
+        </div>
+        <div class="container light">
+                <svg class="envelope" id="envelope-light"></svg>
+        </div>
+    </div>
+</body>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const k1 = new svgEnvelope(document.getElementById('envelope-dark'), {
+            env_color: "#d3d347",
+            env_width: 6
+        });
+
+        const k2 = new svgEnvelope(document.getElementById('envelope-light'), {
+            env_color: "#42A5F5",
+            env_width: 6
+        });
+
+    });
+
+</script>
+</html>

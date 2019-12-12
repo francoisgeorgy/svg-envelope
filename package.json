@@ -1,32 +1,25 @@
 {
   "name": "svg-envelope",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Customizable ADSR like envelope",
   "keywords": [
     "svg",
     "adsr",
     "envelope"
   ],
-  "main": "dist/main.js",
   "repository": "https://github.com/francoisgeorgy/svg-envelope.git",
   "bugs": "https://github.com/francoisgeorgy/svg-envelope/issues",
   "author": "François Georgy <francois.georgy@gmail.com> (http://sysex.io)",
   "license": "MIT",
-  "files": [
-    "README.md",
-    "dist/main.js"
-  ],
+  "source": "src/index.js",
+  "main": "dist/index.js",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.mjs",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "microbundle",
+    "dev": "microbundle watch"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "webpack": "^4.5.0",
-    "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^3.1.3"
+    "microbundle": "^0.11.0"
   }
 }
